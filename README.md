@@ -1,4 +1,4 @@
-# Filtering Palindromes Numbers: Sequential and Parallel Approaches
+# Filtering Palindromes Numbers
 
 Beginner level task for practicing the capabilities of the `ThreadPool` class for CPU-bound operations.
 
