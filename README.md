@@ -26,4 +26,3 @@ _Note_: To determine if a number is a palindrome, you must implement the solutio
 
 - [ThreadPool Class](https://learn.microsoft.com/en-us/dotnet/api/system.threading.threadpool)
 - [ConcurrentBag<T> Class](https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentbag-1?view=net-7.0)
-
