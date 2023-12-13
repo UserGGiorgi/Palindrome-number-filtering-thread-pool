@@ -21,3 +21,8 @@ The `Selector` class contains several private helper methods:
 - `GetLength`: This private method calculates the number of digits in the given integer. It uses a switch statement to handle different ranges of numbers efficiently.
 
 _Note_: To determine if a number is a palindrome, you must implement the solution without using arrays, collections, or the string class: use only basic numerical operations and logical comparisons.
+
+### See also
+
+[ThreadPool Class](https://learn.microsoft.com/en-us/dotnet/api/system.threading.threadpool)
+[ConcurrentBag<T> Class](https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentbag-1?view=net-7.0)
