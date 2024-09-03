@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace PalindromeNumberFiltering;
 
 /// <summary>
@@ -13,7 +15,19 @@ public static class Selector
     /// <exception cref="ArgumentNullException">Thrown when the input list 'numbers' is null.</exception>
     public static IList<int> GetPalindromes(IList<int> numbers)
     {
-        throw new NotImplementedException();
+        ArgumentNullException.ThrowIfNull(numbers);
+
+        var palindromes = new List<int>();
+
+        foreach (int number in numbers)
+        {
+            if (IsPalindrome(number))
+            {
+                palindromes.Add(number);
+            }
+        }
+
+        return palindromes;
     }
 
     /// <summary>
@@ -23,7 +37,21 @@ public static class Selector
     /// <returns>True if the number is a palindrome, otherwise false.</returns>
     private static bool IsPalindrome(int number)
     {
-        throw new NotImplementedException();
+        if (number < 0)
+        {
+            return false;
+        }
+
+        int length = GetLength(number);
+        for (int i = 0; i <= length - i; i++)
+        {
+            if (GetDigitInDecimalPlace(number, i) != GetDigitInDecimalPlace(number, length - (i + 1)))
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /// <summary>
@@ -35,7 +63,18 @@ public static class Selector
     /// <returns>True if the positive number is a palindrome, otherwise false.</returns>
     private static bool IsPositiveNumberPalindrome(int number, int left, int right)
     {
-        throw new NotImplementedException();
+        string numberStr = number.ToString(CultureInfo.InvariantCulture);
+        if (left >= right)
+        {
+            return true;
+        }
+
+        if (numberStr[left] != numberStr[right])
+        {
+            return false;
+        }
+
+        return IsPositiveNumberPalindrome(number, left + 1, right - 1);
     }
 
     /// <summary>
@@ -46,7 +85,9 @@ public static class Selector
     /// <returns>The digit at the specified decimal place.</returns>
     private static int GetDigitInDecimalPlace(int number, int decimalPlace)
     {
-        throw new NotImplementedException();
+        string numberStr = number.ToString(CultureInfo.InvariantCulture);
+
+        return numberStr[decimalPlace];
     }
 
     /// <summary>
@@ -56,6 +97,20 @@ public static class Selector
     /// <returns>The number of digits in the integer.</returns>
     private static byte GetLength(int number)
     {
-        throw new NotImplementedException();
+        if (number == 0)
+        {
+            return 1;
+        }
+
+        number = Math.Abs(number);
+        byte length = 0;
+
+        while (number > 0)
+        {
+            number /= 10;
+            length++;
+        }
+
+        return length;
     }
 }
